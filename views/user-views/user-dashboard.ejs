@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/css/dashboard.css">
+    <title>User Dashboard - <%= name %></title>
+</head>
+<body>
+    <div class="top">
+        <div class="img">
+            <img src="<%= locals.profile == "<empty>" ? "/images/default.jpg" : locals.profile %>" >
+            <h1><%= locals.name %></h1>
+        </div>
+        <div class="nav">
+            <a href="/users/login">&larr; Back</a>
+        </div>
+    </div>
+    <div class="left">
+
+    </div>
+    <div class="right">
+
+    </div>
+</body>
+</html>
