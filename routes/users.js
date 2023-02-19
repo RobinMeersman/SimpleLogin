@@ -14,7 +14,7 @@ router.get("/", (req, res) => {
 
 router.get("/login", (req, res) => {
     console.debug(`${Util.greenColor("[SERVER]")}: loaded login page`);
-    res.render("login");
+    res.render("./user/login");
 });
 
 router.post("/login", (req, res) => {
@@ -25,7 +25,7 @@ router.post("/login", (req, res) => {
     console.debug(`${Util.greenColor("[SERVER]")}: post request to /login with object: ${util.inspect(user, false, null, true)}`);
     userDB.findOne({ name: user.name, pwd: user.password }).then(doc => {
         if(doc != null) {
-            console.log(`${Util.greenColor("[SERVER]")}: received answer from db: ${util.inspect(doc)}`);
+            console.log(`${Util.greenColor("[SERVER]")}: received answer from db: ${doc.name}`);
             res.redirect(`/users/${doc.name}`);
             return;
         }
@@ -35,7 +35,7 @@ router.post("/login", (req, res) => {
 });
 
 router.get("/register", (req, res) => {
-    res.render("/user-views/register");
+    res.render("./user/register");
 });
 
 router.post("/register", (req, res) => {
@@ -61,7 +61,7 @@ router.post("/register", (req, res) => {
 });
 
 router.get("/:uuid", (req, res) => {
-    res.render("user-dashboard", {
+    res.render("./user/user-dashboard", {
         name: req.params.uuid,
         profile: "<empty>"
     });
